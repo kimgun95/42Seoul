@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:08:43 by gukim             #+#    #+#             */
-/*   Updated: 2020/11/30 17:18:20 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/01 11:24:22 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,5 @@
 
 void	ft_bzero(void *dst, size_t size)
 {
-	size_t					i;
-	unsigned char			*dest;
-
-	i = 0;
-	dest = (unsigned char *)dst;
-	while (i < size)
-	{
-		*(dest + i) = 0;
-		i++;
-	}
+	ft_memset(dst, '\0', size);
 }
