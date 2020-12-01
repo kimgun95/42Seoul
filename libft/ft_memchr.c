@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 16:21:59 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/01 16:27:29 by gukim            ###   ########.fr       */
+/*   Created: 2020/12/01 15:43:27 by gukim             #+#    #+#             */
+/*   Updated: 2020/12/01 16:00:25 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *str)
+void	*ft_memchr(const void *buf, int c, size_t size)
 {
-	size_t		i;
+	size_t					i;
 
 	i = 0;
-	while (str[i])
+	while (i < size)
+	{
+		if (*((unsigned char *)buf + i) == (unsigned char)c)
+			return (buf + i)
 		i++;
-	return (i);
+	}
+	return (NULL);
 }

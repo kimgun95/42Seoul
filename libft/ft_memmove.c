@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 16:21:59 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/01 16:27:29 by gukim            ###   ########.fr       */
+/*   Created: 2020/12/01 09:54:14 by gukim             #+#    #+#             */
+/*   Updated: 2020/12/01 10:21:38 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *str)
+void	*ft_memmove(void *dst, const void *src, size_t size)
 {
-	size_t		i;
+	size_t					i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (!size || dst == src)
+		return (dst);
+	if (dst < src)
+	{
+		while (i < size)
+		{
+			*((char *)dst + i) = *((char *)src + i);
+			i++;
+		}
+	}
+	else
+	{
+		while (size > 0)
+		{
+			*((char *)dst + size - 1) = *((char *)src + size - 1);
+			size--;
+		}
+	}
+	return (dst);
 }
