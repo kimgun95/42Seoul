@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 16:36:26 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/01 17:52:03 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/02 15:34:37 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,10 @@ int			ft_memcmp(const void *ptr1, const void *ptr2, size_t size);
 size_t		ft_strlen(const char *str);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
+char		*ft_strchr(const char *str, int c);
+char		*ft_strrchr(const char *str, int c);
+char		*ft_strnstr(const char *big, const char *little, size_t len);
+int			ft_strncmp(const char *str1, const char *str2, size_t num);
+int			ft_atoi(const char *str);
 
 #endif
