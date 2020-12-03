@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:15:24 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/02 15:31:42 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/03 14:45:03 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_strncmp(const char *str1, const char *str2, size_t num)
 			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 		i++;
 	}
-	if (i == num || str1[i] == str2[i])
+	if (i == num)
 		return (0);
 	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }
