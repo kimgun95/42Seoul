@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 16:36:26 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/02 15:34:37 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/03 17:18:12 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,14 @@ char		*ft_strrchr(const char *str, int c);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 int			ft_strncmp(const char *str1, const char *str2, size_t num);
 int			ft_atoi(const char *str);
+int			ft_isalpha(int c);
+int			ft_isdigit(int c);
+int			ft_isalnum(int c);
+int			ft_isascii(int c);
+int			ft_isprint(int c);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
+void		*ft_calloc(size_t num, size_t size);
+char		*ft_strdup(const char *str);
 
 #endif
