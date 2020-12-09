@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:49:22 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/04 18:01:50 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:27:42 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char		*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if (!(buf = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	if (!(buf = (char *)malloc(sizeof(char) *
+					(ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
 	ft_memcpy(buf, s1, ft_strlen(s1));
 	ft_memcpy(buf + ft_strlen(s1), s2, ft_strlen(s2));

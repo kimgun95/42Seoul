@@ -6,12 +6,11 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 12:34:05 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/02 12:44:08 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:26:24 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char		*ft_strnstr(const char *big, const char *little, size_t len)
 {

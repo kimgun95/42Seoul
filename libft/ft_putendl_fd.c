@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 15:36:01 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/05 15:39:07 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:26:56 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_putendl_fd(char *s, int fd)
 {
-	if(!(s) || fd < 0)
+	if (!(s) || fd < 0)
 		return ;
 	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);

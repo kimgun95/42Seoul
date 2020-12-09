@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:38:57 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/01 16:58:36 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:25:34 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 		dst[i] = '\0';
 	}
 	while (src[i])
-	i++;
+		i++;
 	return (i);
 }

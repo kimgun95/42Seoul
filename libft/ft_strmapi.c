@@ -6,13 +6,13 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 15:12:50 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/05 15:26:08 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:28:20 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strmapi(char const *s, char (*f)(unsigned int ,char))
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char				*str;
 	unsigned int		len;
@@ -21,7 +21,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int ,char))
 	if (s == 0 || f == 0)
 		return (NULL);
 	len = ft_strlen(s);
-	if(!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	i = 0;
 	while (s[i])
