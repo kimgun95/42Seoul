@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
+/*   By: gukim <gukim@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:52:17 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/02 11:44:30 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:49:17 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	src_i = 0;
 	while (dst[dst_i])
 		dst_i++;
-	while (src[src_i] && dst_i < size - 1)
+	while (src[src_i] && dst_i + 1 < size)
 	{
 		dst[dst_i] = src[src_i];
 		dst_i++;

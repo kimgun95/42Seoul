@@ -6,7 +6,7 @@
 /*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:41:55 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/08 15:49:23 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 15:08:08 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		ft_lstclear(t_list **lst, void (*del)(void *))
 	cur = *lst;
 	while (cur)
 	{
-		next = lst->next;
+		next = cur->next;
 		ft_lstdelone(cur, del);
 		cur = next;
 	}

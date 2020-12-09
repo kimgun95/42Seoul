@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
+/*   By: gukim <gukim@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 12:09:41 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/02 12:14:50 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:53:21 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *str, int c)
 	while (i >= 0)
 	{
 		if (str[i] == (char)c)
-			return ((char *)str + i);
+			return ((char *)(str + i));
 		i--;
 	}
 	return (NULL);
