@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
+/*   By: gukim <gukim@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/05 11:26:59 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/05 12:08:54 by gukim            ###   ########.fr       */
+/*   Created: 2020/12/10 17:08:30 by gukim             #+#    #+#             */
+/*   Updated: 2020/12/10 18:29:51 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 size_t		cnt_word(char const *s, char c)
 {
-	size_t			i;
 	size_t			cnt;
 
-	i = 0;
 	cnt = 0;
-	if (s[i] && s[i] != c)
+	while (*s != '\0')
 	{
-		i++;
-		cnt++;
-	}
-	while (s[i])
-	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)
+		if (*s == c)
+			s++;
+		else
+		{
 			cnt++;
-		i++;
+			while (*s != '\0' && *s != c)
+				s++;
+		}
 	}
 	return (cnt);
 }
 
 char		**malloc_free(char **s, size_t idx)
 {
-	while (idx >= 0)
+	while (s[idx] != NULL && idx >= 0)
 	{
 		free(s[idx]);
+		s[idx] = NULL;
 		idx--;
 	}
 	free(s);
+	s = NULL;
 	return (NULL);
 }
 
@@ -64,7 +64,7 @@ char		**ft_split(char const *s, char c)
 			len = 0;
 			while (*(s + len) && *(s + len) != c)
 				len++;
-			if (!(res[res_idx++] = ft_substr(s, 0, len)))
+			if (!(res[res_idx++] = ft_substr(s, 0, len)) && res_idx < word_cnt)
 				return (malloc_free(res, res_idx));
 			s += len;
 		}

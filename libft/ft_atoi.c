@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gukim </var/mail/gukim>                    +#+  +:+       +#+        */
+/*   By: gukim <gukim@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:34:45 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/02 15:47:06 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/10 17:24:55 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_atoi(const char *str)
 {
-	int				sign;
+	long long		sign;
 	long long		val;
 
 	sign = 1;
@@ -29,6 +29,10 @@ int		ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		val = val * 10 + (*str - '0');
+		if (val > 2147483647 && sign == 1)
+			return (-1);
+		if (val > 2147483648 && sign == -1)
+			return (0);
 		str++;
 	}
 	return (val * sign);

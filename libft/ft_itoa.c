@@ -6,15 +6,15 @@
 /*   By: gukim <gukim@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 14:47:47 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/09 16:58:04 by gukim            ###   ########.fr       */
+/*   Updated: 2020/12/10 16:28:26 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		n_len(int n)
+int			n_len(long int n)
 {
-	size_t			size;
+	int				size;
 
 	size = (n <= 0) ? 1 : 0;
 	while (n != 0)
@@ -25,25 +25,29 @@ size_t		n_len(int n)
 	return (size);
 }
 
+long int	ft_abs(long int n)
+{
+	return ((n < 0) ? -n : n);
+}
+
 char		*ft_itoa(int n)
 {
-	size_t			len;
+	int				len;
+	int				sign;
 	char			*res;
 
+	sign = (n < 0) ? -1 : 1;
 	len = n_len(n);
 	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
-	res[len--] = 0;
-	if (n < 0)
+	res[len--] = '\0';
+	while (len >= 0)
 	{
-		n *= -1;
+		res[len] = ft_abs(n % 10) + '0';
+		n = ft_abs(n / 10);
+		len--;
+	}
+	if (sign == -1)
 		res[0] = '-';
-	}
-	while (n > 9)
-	{
-		res[len--] = n % 10 + '0';
-		n /= 10;
-	}
-	res[len] = n + '0';
 	return (res);
 }
