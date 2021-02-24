@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 19:37:15 by gukim             #+#    #+#             */
-/*   Updated: 2021/02/24 21:14:39 by gukim            ###   ########.fr       */
+/*   Created: 2021/02/24 22:21:35 by gukim             #+#    #+#             */
+/*   Updated: 2021/02/24 22:29:35 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int		split_line(char **keep_buf, char **line, char *index_newline)
 {
@@ -47,7 +47,7 @@ int		get_next_line(int fd, char **line)
 {
 	int				size;
 	char			buf[BUFFER_SIZE + 1];
-	static char		*keep_buf;
+	static char		*keep_buf[OPEN_MAX];
 	char			*index_newline;
 
 	index_newline = 0;
@@ -56,10 +56,10 @@ int		get_next_line(int fd, char **line)
 	while ((size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[size] = '\0';
-		keep_buf = ft_strjoin(keep_buf, buf);
-		index_newline = ft_strchr(keep_buf, '\n');
+		keep_buf[fd] = ft_strjoin(keep_buf[fd], buf);
+		index_newline = ft_strchr(keep_buf[fd], '\n');
 		if (index_newline != '\0')
-			return (split_line(&keep_buf, line, index_newline));
+			return (split_line(&keep_buf[fd], line, index_newline));
 	}
-	return (return_all(&keep_buf, line, size));
+	return (return_all(&keep_buf[fd], line, size));
 }

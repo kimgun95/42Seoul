@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 21:45:24 by gukim             #+#    #+#             */
-/*   Updated: 2021/02/24 21:12:29 by gukim            ###   ########.fr       */
+/*   Created: 2021/02/24 22:27:08 by gukim             #+#    #+#             */
+/*   Updated: 2021/02/24 22:30:01 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 32
 # endif
 
 # include <fcntl.h>
