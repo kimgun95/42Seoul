@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 20:20:14 by gukim             #+#    #+#             */
-/*   Updated: 2021/04/20 20:46:05 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/20 22:29:12 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 
 # define TYPE "csdiupxX%"
 
@@ -31,5 +31,7 @@ typedef struct s_info
 	int				nbr_base;
 	int				nbr_sign;
 }					t_info;
+
+void			init_info(t_info *info);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 16:36:26 by gukim             #+#    #+#             */
-/*   Updated: 2021/04/20 21:17:34 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/20 22:28:56 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void				ft_putchar(char c);
+int					ft_putchar(char c);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
