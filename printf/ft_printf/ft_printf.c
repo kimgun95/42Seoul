@@ -12,6 +12,28 @@
 
 #include "ft_printf.h"
 
+int					print_type(va_list ap, t_info *info)
+{
+	int				ret;
+	char			type;
+
+	ret = 0;
+	type = info->type;
+	if (type == 'c')
+		ret = print_char(va_arg(ap, int), info);
+	else if (type == '%')
+		ret = print_char('%', info);
+	else if (type == 's')
+		ret = print_string(va_arg(ap, char *), info);
+	else if (type == 'd' || type == 'i')
+		ret = print_nbr(va_arg(ap, int), info);
+	else if (type == 'x' || type == 'X' || type == 'u')
+		ret = print_nbr(va_arg(ap, unsigned int), info)
+	else if (type == 'p')
+		ret = print_nbr(va_arg(ap, unsigned long long), info);
+	return (ret);
+}
+
 void				check_width_and_prec(va_list ap,
 		char *format, t_info *info, int i)
 {
