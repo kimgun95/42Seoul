@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf"
+#include "ft_printf.h"
 
-int             print_char(int c, t_info *info)
+int                 print_char(int c, t_info *info)
 {
     int             ret;
 
@@ -20,24 +20,26 @@ int             print_char(int c, t_info *info)
     if (info->type == '%' && info->minus == 1)
         info->zero = 0;
     if (info->minus == 1)
-        ret += ft_putchar(c);
-    ret += cal_width(info->width, 1, info->zero);
+        ret += ft_putchar_fd(c, 1);
+    ret += print_width(info);
     if (info->minus == 0)
-        ret += ft_putchar(c);
+        ret += ft_putchar_fd(c, 1);
     return (ret);
 }
 
-int             cal_width(int width, int len, int zero)
+int                 print_width(t_info *info)
 {
     int             ret;
+    int             len;
 
     ret = 0;
-    while (len < width)
+    len = 1;
+    while (len < info->width)
     {
         if (zero == 1)
-            ft_putchar('0');
+            ft_putchar_fd('0', 1);
         else
-            ft_putchar(' ');
+            ft_putchar_fd(' ', 1);
         len++;
         ret++;
     }

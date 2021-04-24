@@ -12,10 +12,10 @@
 
 #include "ft_printf"
 
-char            *parse_buf(char *str, int end, int len)
+char            	*parse_buf(char *str, int end, int len)
 {
-	int         i;
-	char        *buf;
+	int         	i;
+	char        	*buf;
 
 	end = end < len ? end : len;
 	if (!(buf = (char *)malloc(sizeof(char) * end + 1)))
@@ -30,10 +30,10 @@ char            *parse_buf(char *str, int end, int len)
 	return (buf);
 }
 
-int             put_width_str(char **buf, t_info *info)
+int             	cal_width_str(char **buf, t_info *info)
 {
-	char        *width;
-	int         i;
+	char        	*width;
+	int         	i;
 
 	if (info->width <= (int)ft_strlen(*buf))
 		return ((int)ft_strlen(*buf));
@@ -53,10 +53,10 @@ int             put_width_str(char **buf, t_info *info)
 	return (info->width);
 }
 
-int			    print_string(char *str, t_info *info)
+int			    	print_string(char *str, t_info *info)
 {
-	int         ret;
-	char        *buf;
+	int         	ret;
+	char        	*buf;
 
 	ret = 0;
 	if (str == NULL)
@@ -64,8 +64,8 @@ int			    print_string(char *str, t_info *info)
 	if (info->prec == -1 || (size_t)info->prec > ft_strlen(str))
 		info->prec = ft_strlen(str);
 	buf = parse_buf(str, info->prec, ft_strlen(str));
-	ret = put_width_str(&buf, info);
-	ft_putstr(buf);
+	ret = cal_width_str(&buf, info);
+	ft_putstr_fd(buf, 1);
 	free(buf);
 	return (ret);
 }
