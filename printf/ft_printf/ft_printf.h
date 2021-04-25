@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 20:20:14 by gukim             #+#    #+#             */
-/*   Updated: 2021/04/25 17:48:15 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/25 19:06:02 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 
 # define TYPE "csdiupxX%"
 
@@ -34,7 +34,7 @@ typedef struct		s_info
 
 int					ft_printf(const char *format, ...);
 int					parse_format(va_list ap, char *format);
-void				check_info(va_list ap, char *format, t_info *info, int i);
+int					check_info(va_list ap, char *format, t_info *info, int i);
 void				check_width_and_prec(va_list ap,
 		char *format, t_info *info, int i);
 int					print_type(va_list ap, t_info *info);

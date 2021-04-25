@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 23:50:25 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/25 17:52:57 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/25 18:15:00 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int					print_nbr(unsigned long long nbr, t_info *info)
 		buf_len = make_pointer_prefix(&buf);
 	ret = cal_width_str(&buf, info);
 	ret += cal_minus2(buf_len, info, &buf);
-	ft_putstr(buf);
+	ft_putstr_fd(buf, 1);
 	free(buf);
 	return (ret);
 }

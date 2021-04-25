@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 17:54:42 by gukim             #+#    #+#             */
-/*   Updated: 2021/04/25 18:06:40 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/25 19:05:13 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				check_width_and_prec(va_list ap,
 	}
 }
 
-void				check_info(va_list ap, char *format, t_info *info, int i)
+int					check_info(va_list ap, char *format, t_info *info, int i)
 {
 	if (format[i] == '0' && info->width == 0 && info->prec == -1)
 		info->zero = 1;
@@ -70,6 +70,12 @@ void				check_info(va_list ap, char *format, t_info *info, int i)
 		info->prec = 0;
 	else if (ft_isdigit(format[i]) || format[i] == '*')
 		check_width_and_prec(ap, format, info, i);
+	else if (format[i] == ' ')
+	{
+		ft_putchar_fd(format[i], 1);
+		return (1);
+	}
+	return (0);
 }
 
 int					parse_format(va_list ap, char *format)
@@ -85,12 +91,12 @@ int					parse_format(va_list ap, char *format)
 	while (format[i] != '\0')
 	{
 		while (format[i] != '%' && format[i] != '\0')
-			ret += ft_putchar(format[i++]);
+			ret += ft_putchar_fd(format[i++], 1);
 		if (format[i] == '%')
 		{
 			init_info(info);
 			while (format[++i] != '\0' && !(ft_strchr(TYPE, format[i])))
-				check_info(ap, format, info, i);
+				ret += check_info(ap, format, info, i);
 			info->type = format[i++];
 			if ((info->minus == 1 || info->prec > -1) && info->type != '%')
 				info->zero = 0;

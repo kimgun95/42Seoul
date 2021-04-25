@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 23:53:41 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/25 17:45:21 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/25 18:12:50 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int					print_width(t_info *info)
 	len = 1;
 	while (len < info->width)
 	{
-		if (zero == 1)
+		if (info->zero == 1)
 			ft_putchar_fd('0', 1);
 		else
 			ft_putchar_fd(' ', 1);

@@ -6,11 +6,11 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 00:28:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/25 17:50:35 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/25 18:15:16 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf"
+#include "ft_printf.h"
 
 char				*parse_buf(char *str, int end, int len)
 {
