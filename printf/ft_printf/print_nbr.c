@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   print_nbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 23:50:25 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/24 23:50:25 by marvin           ###   ########.fr       */
+/*   Updated: 2021/04/25 17:52:57 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			        make_pointer_prefix(char **buf)
+int					make_pointer_prefix(char **buf)
 {
 	*buf = ft_strjoin("0x", *buf);
 	return (ft_strlen(*buf));
 }
 
-int			        cal_minus(t_info *info, char **buf)
+int					cal_minus(t_info *info, char **buf)
 {
-	int		        len_to_add;
+	int				len_to_add;
 
 	len_to_add = 0;
 	if ((info->type == 'i' || info->type == 'd') &&
@@ -32,9 +32,9 @@ int			        cal_minus(t_info *info, char **buf)
 	return (len_to_add);
 }
 
-int			        cal_minus2(int buf_len, t_info *info, char **buf)
+int					cal_minus2(int buf_len, t_info *info, char **buf)
 {
-	int		        len_to_add;
+	int				len_to_add;
 
 	len_to_add = 0;
 	if (info->nbr_sign == -1 && info->zero == 1)
@@ -50,11 +50,12 @@ int			        cal_minus2(int buf_len, t_info *info, char **buf)
 	return (len_to_add);
 }
 
-int			        cal_prec_str(unsigned long long nbr, t_info *info, char **buf)
+int					cal_prec_str(unsigned long long nbr,
+		t_info *info, char **buf)
 {
-	int		        buf_len;
-	int		        ret;
-	int		        i;
+	int				buf_len;
+	int				ret;
+	int				i;
 
 	buf_len = ft_nbrlen(nbr, info);
 	ret = (info->prec > buf_len) ? info->prec : buf_len;
@@ -79,11 +80,11 @@ int			        cal_prec_str(unsigned long long nbr, t_info *info, char **buf)
 	return (buf_len);
 }
 
-int			        print_nbr(unsigned long long nbr, t_info *info)
+int					print_nbr(unsigned long long nbr, t_info *info)
 {
-	char	        *buf;
-	int		        buf_len;
-	int		        ret;
+	char			*buf;
+	int				buf_len;
+	int				ret;
 
 	if (info->type == 'x' || info->type == 'X' || info->type == 'p')
 		info->nbr_base = 16;

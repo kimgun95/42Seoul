@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 21:07:50 by gukim             #+#    #+#             */
-/*   Updated: 2021/04/20 22:29:02 by gukim            ###   ########.fr       */
+/*   Created: 2021/04/25 17:54:42 by gukim             #+#    #+#             */
+/*   Updated: 2021/04/25 18:06:40 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int					print_type(va_list ap, t_info *info)
 	else if (type == 'd' || type == 'i')
 		ret = print_nbr(va_arg(ap, int), info);
 	else if (type == 'x' || type == 'X' || type == 'u')
-		ret = print_nbr(va_arg(ap, unsigned int), info)
+		ret = print_nbr(va_arg(ap, unsigned int), info);
 	else if (type == 'p')
 		ret = print_nbr(va_arg(ap, unsigned long long), info);
 	return (ret);
@@ -40,9 +40,9 @@ void				check_width_and_prec(va_list ap,
 	if (ft_isdigit(format[i]))
 	{
 		if (info->prec == -1)
-			info->width = info->width * 10 + (format[i] - 48);
+			info->width = info->width * 10 + format[i] - 48;
 		else
-			info->prec = info->prec * 10 + (format[i] - 48);
+			info->prec = info->prec * 10 + format[i] - 48;
 	}
 	else if (format[i] == '*')
 	{
@@ -107,7 +107,7 @@ int					ft_printf(const char *format, ...)
 	va_list			ap;
 
 	va_start(ap, format);
-	ret = parse_format(ap, (char*)format);
+	ret = parse_format(ap, (char *)format);
 	va_end(ap);
 	return (ret);
 }

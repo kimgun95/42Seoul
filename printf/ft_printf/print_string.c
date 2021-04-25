@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 00:28:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/24 00:28:18 by marvin           ###   ########.fr       */
+/*   Updated: 2021/04/25 17:50:35 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf"
 
-char            	*parse_buf(char *str, int end, int len)
+char				*parse_buf(char *str, int end, int len)
 {
-	int         	i;
-	char        	*buf;
+	int				i;
+	char			*buf;
 
 	end = end < len ? end : len;
 	if (!(buf = (char *)malloc(sizeof(char) * end + 1)))
@@ -30,10 +30,10 @@ char            	*parse_buf(char *str, int end, int len)
 	return (buf);
 }
 
-int             	cal_width_str(char **buf, t_info *info)
+int					cal_width_str(char **buf, t_info *info)
 {
-	char        	*width;
-	int         	i;
+	char			*width;
+	int				i;
 
 	if (info->width <= (int)ft_strlen(*buf))
 		return ((int)ft_strlen(*buf));
@@ -49,14 +49,14 @@ int             	cal_width_str(char **buf, t_info *info)
 		*buf = ft_strjoin(width, *buf);
 	else
 		*buf = ft_strjoin(*buf, width);
-    free(width);
+	free(width);
 	return (info->width);
 }
 
-int			    	print_string(char *str, t_info *info)
+int					print_string(char *str, t_info *info)
 {
-	int         	ret;
-	char        	*buf;
+	int				ret;
+	char			*buf;
 
 	ret = 0;
 	if (str == NULL)
