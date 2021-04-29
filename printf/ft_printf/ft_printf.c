@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 17:54:42 by gukim             #+#    #+#             */
-/*   Updated: 2021/04/25 19:05:13 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/29 21:18:28 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int					print_type(va_list ap, t_info *info)
 	else if (type == 'x' || type == 'X' || type == 'u')
 		ret = print_nbr(va_arg(ap, unsigned int), info);
 	else if (type == 'p')
-		ret = print_nbr(va_arg(ap, unsigned long long), info);
+		ret = print_nbr(va_arg(ap, long long), info);
 	return (ret);
 }
 
@@ -70,11 +70,6 @@ int					check_info(va_list ap, char *format, t_info *info, int i)
 		info->prec = 0;
 	else if (ft_isdigit(format[i]) || format[i] == '*')
 		check_width_and_prec(ap, format, info, i);
-	else if (format[i] == ' ')
-	{
-		ft_putchar_fd(format[i], 1);
-		return (1);
-	}
 	return (0);
 }
 

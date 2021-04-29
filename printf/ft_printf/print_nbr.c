@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 23:50:25 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/25 18:15:00 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/29 21:47:19 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int					cal_prec_str(unsigned long long nbr,
 		return (0);
 	i = 0;
 	(*buf)[ret] = '\0';
-	while (buf_len + i < ret)
+	while (i < ret - buf_len)
 	{
 		(*buf)[i] = '0';
 		i++;
@@ -80,7 +80,7 @@ int					cal_prec_str(unsigned long long nbr,
 	return (buf_len);
 }
 
-int					print_nbr(unsigned long long nbr, t_info *info)
+int					print_nbr(long long nbr, t_info *info)
 {
 	char			*buf;
 	int				buf_len;

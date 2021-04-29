@@ -6,18 +6,17 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 00:28:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/25 18:15:16 by gukim            ###   ########.fr       */
+/*   Updated: 2021/04/29 19:22:31 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char				*parse_buf(char *str, int end, int len)
+char				*parse_buf(char *str, int end)
 {
 	int				i;
 	char			*buf;
 
-	end = end < len ? end : len;
 	if (!(buf = (char *)malloc(sizeof(char) * end + 1)))
 		return (NULL);
 	i = 0;
@@ -63,7 +62,7 @@ int					print_string(char *str, t_info *info)
 		str = "(null)";
 	if (info->prec == -1 || (size_t)info->prec > ft_strlen(str))
 		info->prec = ft_strlen(str);
-	buf = parse_buf(str, info->prec, ft_strlen(str));
+	buf = parse_buf(str, info->prec);
 	ret = cal_width_str(&buf, info);
 	ft_putstr_fd(buf, 1);
 	free(buf);
