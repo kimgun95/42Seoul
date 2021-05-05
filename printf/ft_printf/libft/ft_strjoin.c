@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gukim <gukim@42.fr>                        +#+  +:+       +#+        */
+/*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 17:08:00 by gukim             #+#    #+#             */
-/*   Updated: 2020/12/10 17:08:01 by gukim            ###   ########.fr       */
+/*   Updated: 2021/05/05 12:55:12 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char *s1, char *s2, int free_check)
 {
 	char			*buf;
 
@@ -24,5 +24,9 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(buf, s1, ft_strlen(s1));
 	ft_memcpy(buf + ft_strlen(s1), s2, ft_strlen(s2));
 	buf[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	if (free_check == 0)
+		free(s1);
+	else if (free_check == 1)
+		free(s2);
 	return (buf);
 }

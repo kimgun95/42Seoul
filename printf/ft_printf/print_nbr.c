@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 23:50:25 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/29 21:47:19 by gukim            ###   ########.fr       */
+/*   Updated: 2021/05/05 12:54:28 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int					make_pointer_prefix(char **buf)
 {
-	*buf = ft_strjoin("0x", *buf);
+	*buf = ft_strjoin("0x", *buf, 1);
 	return (ft_strlen(*buf));
 }
 
@@ -26,7 +26,7 @@ int					cal_minus(t_info *info, char **buf)
 	if ((info->type == 'i' || info->type == 'd') &&
 					info->zero == 0 && info->nbr_sign == -1)
 	{
-		*buf = ft_strjoin("-", *buf);
+		*buf = ft_strjoin("-", *buf, 1);
 		len_to_add = 1;
 	}
 	return (len_to_add);
@@ -41,7 +41,7 @@ int					cal_minus2(int buf_len, t_info *info, char **buf)
 	{
 		if (buf_len >= info->width)
 		{
-			*buf = ft_strjoin("-", *buf);
+			*buf = ft_strjoin("-", *buf, 1);
 			len_to_add = 1;
 		}
 		else if (buf_len < info->width)

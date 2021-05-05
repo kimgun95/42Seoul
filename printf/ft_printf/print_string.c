@@ -6,7 +6,7 @@
 /*   By: gukim <gukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 00:28:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/29 19:22:31 by gukim            ###   ########.fr       */
+/*   Updated: 2021/05/05 12:54:45 by gukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int					cal_width_str(char **buf, t_info *info)
 	}
 	width[i] = '\0';
 	if (info->minus == 0)
-		*buf = ft_strjoin(width, *buf);
+		*buf = ft_strjoin(width, *buf, 1);
 	else
-		*buf = ft_strjoin(*buf, width);
+		*buf = ft_strjoin(*buf, width, 0);
 	free(width);
 	return (info->width);
 }
